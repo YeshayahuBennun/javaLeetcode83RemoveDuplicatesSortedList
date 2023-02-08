@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class Solution {
     public static void main(String[] args) {
@@ -11,7 +9,9 @@ public class Solution {
         node.next = new ListNode(1);
         node.next.next = new ListNode(2);
 
-        traversalHead(deleteDuplicates(node));
+        insert(node, 5);
+
+        traversalHead(node);
 
 
     }
@@ -30,11 +30,25 @@ public class Solution {
         }
 
         return null;
-
     }
 
 
+    static ListNode insert(ListNode root, int item) {
+        ListNode temp = new ListNode();
+        ListNode ptr;
+        temp.val = item;
+        temp.next = null;
 
+        if (root == null)
+            root = temp;
+        else {
+            ptr = root;
+            while (ptr.next != null)
+                ptr = ptr.next;
+            ptr.next = temp;
+        }
+        return root;
+    }
 
 
     public static void traversalHead(ListNode node) {
