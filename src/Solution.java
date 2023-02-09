@@ -17,19 +17,16 @@ public class Solution {
     }
 
     public static ListNode deleteDuplicates(ListNode node) {
-        ListNode head = null;
-        ListNode tail = null;
-        int size = 0;
+        ListNode newNode = node;
+        ListNode currentNode = node;
+        while (newNode != node) {
+            if (currentNode.next == newNode) {
+                currentNode.next = newNode.next;
+            }
 
-        ListNode current1 = node;
-        int count = 0;
+            currentNode = currentNode.next;
 
-        while (current1 != null) {
-            current1 = current1.next;
-            count++;
         }
-
-        return null;
     }
 
 
