@@ -9,24 +9,24 @@ public class Solution {
         node.next = new ListNode(1);
         node.next.next = new ListNode(2);
 
-        insert(node, 5);
+        deleteDuplicates(node);
 
         traversalHead(node);
 
-
     }
 
-    public static ListNode deleteDuplicates(ListNode node) {
-        ListNode newNode = node;
-        ListNode currentNode = node;
-        while (newNode != node) {
-            if (currentNode.next == newNode) {
-                currentNode.next = newNode.next;
+    public static ListNode deleteDuplicates(ListNode head) {
+        ListNode currentNode = head;
+
+        while (currentNode != null && currentNode.next != null) {
+            if (currentNode.val==currentNode.next.val) {
+                currentNode.next = currentNode.next.next;
+            } else {
+                currentNode = currentNode.next;
             }
-
-            currentNode = currentNode.next;
-
         }
+        return head;
+
     }
 
 
